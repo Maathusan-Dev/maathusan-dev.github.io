@@ -3,7 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
+const repoName = "maathusan-dev.github.io"; // <-- your GitHub repo name
+
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -12,7 +13,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  base: "/",
+  base: "/", // <-- IMPORTANT for GitHub Pages
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
